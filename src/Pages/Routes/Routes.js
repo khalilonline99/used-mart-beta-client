@@ -5,6 +5,7 @@ import Home from '../Home/Home';
 import Main from '../Layout/Main';
 import Error404 from '../Error404/Error404';
 import Products from '../Home/Products/Products';
+import Login from '../Login/Login';
 
 
 const router = createBrowserRouter([
@@ -23,7 +24,12 @@ const router = createBrowserRouter([
             {
                 path: '/categories/:id',
                 element: <Products></Products>,
-                loader: ({params}) => {return fetch(`http://localhost:5000/categories/${params.id}`)}
+                loader: ({params}) => {return fetch(`https://used-mart-server.vercel.app/categories/${params.id}`)}
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
+                
             },
             {
                 path: '*',

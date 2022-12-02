@@ -15,7 +15,11 @@ const ProductCard = ({ products }) => {
 
     const handleToastMessage = () => {
         setToast(true);
+        setTimeout(()=> {setToast(false)},1500)
+
     }
+
+
 
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
@@ -69,15 +73,10 @@ const ProductCard = ({ products }) => {
                 {/* modal ends */}
                 {
                     toast ?
-                        <div className="toast toast-center toast-middle">
-                            <div className="alert alert-info">
-                                <div>
-                                    <span>New mail arrived.</span>
-                                </div>
-                            </div>
-                            <div className="alert alert-success">
-                                <div>
-                                    <span>Message sent successfully.</span>
+                        <div className="toast toast-center toast-middle w-2/5">
+                            <div className="alert alert-success py-10">
+                                <div className='mx-auto'>
+                                    <span className='text-center text-lg font-bold'>The item is booked. Thanks</span>
                                 </div>
                             </div>
                         </div>
