@@ -5,10 +5,11 @@ import { useNavigate } from 'react-router-dom/dist';
 import { AuthContext } from '../Context/Authprovider/Authprovider';
 
 const Register = () => {
-    const { user, createUser } = useContext(AuthContext)
+    const { user, createUser, handleRole } = useContext(AuthContext)
     const navigate = useNavigate();
 
     const [errorMessage, setErrorMessage] = useState("");
+    const [registerAs, setRegisterAs] = useState("")
     const [spinner, setSpinner] = useState(false);
 
     const handleCreateUser = (event) => {
@@ -18,6 +19,7 @@ const Register = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+        const userRole = form.userRole.value;
 
         createUser(email, password)
             .then((userCredential) => {
@@ -34,7 +36,16 @@ const Register = () => {
                 setErrorMessage(errorMessage);
             });
 
+        handleRole(userRole);
+        console.log('the user role is',userRole);
+
     }
+
+    // const hadleRegisterAs = () => {
+    //     // setRegisterAs(event)
+    //     handleRole()
+    //     // console.log(event.target);
+    // }
 
     return (
         <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md ">
@@ -59,19 +70,26 @@ const Register = () => {
 
             <form onSubmit={handleCreateUser}>
                 <div className="flex flex-col mx-auto w-2/4 mt-5">
+                    <div className='flex mx-auto my-2'>
+                        <label>Select your role: </label>
+                        <select name='userRole' id='userRole'>
+                            <option value="buyer">Buyer</option>
+                            <option value="seller">Seller</option>
+                        </select>
+                    </div>
                     <div>
                         <label className="text-gray-700 ">Your Name</label>
-                        <input id="username" type="text" name='name' className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring" required/>
+                        <input type="text" name='name' className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring" required />
                     </div>
 
                     <div>
                         <label className="text-gray-700">Email Address</label>
-                        <input id="emailAddress" type="email" name='email' className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring" required/>
+                        <input id="emailAddress" type="email" name='email' className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring" required />
                     </div>
 
                     <div>
                         <label className="text-gray-700">Password</label>
-                        <input id="password" type="password" name='password' className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring" required/>
+                        <input id="password" type="password" name='password' className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring" required />
                     </div>
 
                     <div className="flex mt-6 mx-auto">

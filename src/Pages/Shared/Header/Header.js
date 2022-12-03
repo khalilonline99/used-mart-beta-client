@@ -58,10 +58,24 @@ export const Header = () => {
                             to="/"
                             aria-label="Our product"
                             title="Our product"
-                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            className="font-medium mr-2 tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
                             Product
                         </Link>
+
+                        {
+                            user ?
+                                <Link
+                                    to="/dashboard"
+                                    aria-label="Our product"
+                                    title="Our product"
+                                    className="font-medium mr-2 tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                >
+                                    Dashboard
+                                </Link>
+                                :
+                                <></>
+                        }
                     </li>
                 </ul>
                 <ul className="flex items-center hidden space-x-8 lg:flex">

@@ -7,6 +7,7 @@ import Error404 from '../Error404/Error404';
 import Products from '../Home/Products/Products';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
+import Dashboard from '../Dashboard/Dashboard';
 
 
 const router = createBrowserRouter([
@@ -35,6 +36,11 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+                
+            },
+            {
+                path: '/dashboard',
+                element: <Dashboard></Dashboard>
                 
             },
             {

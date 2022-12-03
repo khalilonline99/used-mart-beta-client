@@ -8,6 +8,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [role,setRole] = useState("buyer");
 
     const login = (email, password) => {
         setLoading(true);
@@ -58,6 +59,11 @@ const AuthProvider = ({ children }) => {
     }, [{user, loading}])
 
 
+    const handleRole = (userRole) => {
+        setRole(userRole)
+    }
+
+
 
 
     const authInfo = {
@@ -69,6 +75,7 @@ const AuthProvider = ({ children }) => {
         loading,
         handleProfile,
         auth,
+        handleRole,
 
     }
 
