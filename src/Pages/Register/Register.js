@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom/dist';
 import { AuthContext } from '../Context/Authprovider/Authprovider';
 
 const Register = () => {
-    const { user, createUser, handleRole } = useContext(AuthContext)
+    const { user, createUser, handleRole, role } = useContext(AuthContext)
     const navigate = useNavigate();
 
     const [errorMessage, setErrorMessage] = useState("");
@@ -19,11 +19,10 @@ const Register = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        const userRole = form.userRole.value;
+        const userRole = form.userRole.value; //setting the user role here
 
         createUser(email, password)
             .then((userCredential) => {
-                // Signed in 
                 const user = userCredential.user;
                 form.reset();
                 setSpinner(false);
@@ -37,15 +36,10 @@ const Register = () => {
             });
 
         handleRole(userRole);
-        console.log('the user role is',userRole);
 
     }
 
-    // const hadleRegisterAs = () => {
-    //     // setRegisterAs(event)
-    //     handleRole()
-    //     // console.log(event.target);
-    // }
+    
 
     return (
         <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md ">

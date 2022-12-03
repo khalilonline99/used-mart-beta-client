@@ -56,13 +56,12 @@ const AuthProvider = ({ children }) => {
         return () => {
             return unsubscribe()
         }
-    }, [{user, loading}])
+    }, [{user, loading, role}])
 
 
     const handleRole = (userRole) => {
         setRole(userRole)
     }
-
 
 
 
@@ -75,7 +74,7 @@ const AuthProvider = ({ children }) => {
         loading,
         handleProfile,
         auth,
-        handleRole,
+        handleRole
 
     }
 
