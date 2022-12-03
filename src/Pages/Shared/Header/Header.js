@@ -90,16 +90,16 @@ export const Header = () => {
                                     <Link
                                         to="/login"
                                         className="mr-2 inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-cyan-600 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                                        aria-label="Sign up"
-                                        title="Sign up"
+                                        aria-label="Login"
+                                        title="Login"
                                     >
                                         Login
                                     </Link>
                                     <Link
-                                        to="/"
+                                        to="/register"
                                         className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-cyan-600 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                                        aria-label="Sign up"
-                                        title="Sign up"
+                                        aria-label="Register"
+                                        title="Register"
                                     >
                                         Register
                                     </Link>
